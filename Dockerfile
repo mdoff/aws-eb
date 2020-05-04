@@ -1,7 +1,6 @@
 FROM alpine:3.11
 
 RUN apk --no-cache --update add \
-    bash \
     curl \
     gcc \
     git \
