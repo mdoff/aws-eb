@@ -4,6 +4,7 @@ RUN apk --no-cache --update add \
     bash \
     curl \
     gcc \
+    git \
     libc-dev \
     libffi-dev \
     libressl-dev \
