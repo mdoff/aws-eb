@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:3.13
 
 RUN apk --no-cache --update add \
     curl \
@@ -11,9 +11,11 @@ RUN apk --no-cache --update add \
     musl-dev \
     python3 \
     python3-dev \
-    py3-pip && \
+    py3-pip \
+    cargo \
+    rust && \
     pip3 install --upgrade --no-cache-dir pip && \
-    pip3 install --upgrade --no-cache-dir \
+    pip3 install --upgrade --no-cache-dir --ignore-installed six \
       awsebcli \
       awscli && \
     apk del \
@@ -23,7 +25,9 @@ RUN apk --no-cache --update add \
       libressl-dev \
       make \
       musl-dev \
-      python3-dev && \
+      python3-dev \
+      rust \
+      cargo && \
       rm -rf /var/cache/apk/*
 
 RUN mkdir ~/.aws
